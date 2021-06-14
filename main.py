@@ -12,6 +12,7 @@ headers = ["Account No.","Name","Balance"]
 #GUI Methods=============================================================================================================
 
 def display_table(window,data):
+    #Helps in displaying table with rows and columns obtained from data
     rows = []
     for i in range(len(data)):
         
@@ -31,6 +32,7 @@ def display_table(window,data):
 
 
 def showAllRecordsWindow():
+    #shows window with all records present when the user clicks on show all records button
     bfile= open("databases/Banking_records.dat","rb")
     data = pickle.load(bfile)
     data = list(data)
@@ -44,7 +46,7 @@ def showAllRecordsWindow():
 
 
 def searchRecord():
-    
+    #shows window with text box to enter acc no and then opens a new window with all the details of the record 
     searchWindow = Toplevel(root)
     searchWindow.title("Search for a record")
     acc_var = IntVar()
@@ -76,6 +78,7 @@ def searchRecord():
     searchWindow.mainloop()
 
 def recordAdditionWindow():
+    #allows the user to add record within the table by showing a window with two text boxes where we could enter name and balance
     bfile= open("databases/Banking_records.dat","rb")
     data = pickle.load(bfile)
     bfile.close()
@@ -123,6 +126,7 @@ def recordAdditionWindow():
 
 
 def deletionWindow():
+    #opens window where we can write the name and acc no of the record which we want to delete
     bfile= open("databases/Banking_records.dat","rb")
     data = pickle.load(bfile)
     bfile.close()
@@ -173,6 +177,7 @@ def deletionWindow():
 
 
 def depWindow():
+    #opens window that takes acc no and deposit to be made to that account
     bfile= open("databases/Banking_records.dat","rb")
     data = pickle.load(bfile)
     bfile.close()
@@ -225,6 +230,7 @@ def depWindow():
     depositWindow.mainloop()
 
 def withdrawMonWindow():
+    #allows the user to withdraw money from acc using acc no and amount to be withdrawn
     bfile= open("databases/Banking_records.dat","rb")
     data = pickle.load(bfile)
     bfile.close()
@@ -278,6 +284,7 @@ def withdrawMonWindow():
     withdrawWindow.mainloop()
 
 def richestWindow():
+    #allows us to see the record of the person with the highest balance
     richWindow = Toplevel(root)
     richWindow.title("Richest person on the record")
     bfile = open("databases/Banking_records.dat","rb")
@@ -292,7 +299,7 @@ def richestWindow():
     display_table(richWindow,fdata)
 
 #Command Line Methods===============================================================================================
-
+#the work done by each function can be easily understood by reading its name as I have tried to make the function names as self-explanatory as possible
 def show_data():
     
     bfile= open("databases/Banking_records.dat","rb")
@@ -405,8 +412,10 @@ def richest():
 
 
 while True:
+    #ifinite loop
     mode = input("Enter mode: ")
     if mode == 'gui':
+        #gui mode
         root=Tk()
         root.title("Bank UI")
         root.geometry("800x800")
@@ -451,6 +460,7 @@ while True:
         root.mainloop()
 
     elif mode == 'cli':
+        #Command line
         while True:
             
             print("%10s"%"Choice","%20s"%"|","%20s"%"Task")
