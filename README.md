@@ -2,7 +2,7 @@
 CRUD Operations are performed on a binary database using pickle (module in python)
 
 Allows the user to choose between gui mode or command line mode
-The gui has been created using tkinter (module in python)
+The gui has been created using tkinter (library in python)
 
 Fields in the database are:
 1. Account No.
